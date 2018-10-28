@@ -18,10 +18,10 @@ app.use(cookieParser());
 
 // for exhanges the github code against a user token
 app.get('/githubredirect', (req, res, next) => { // eslint-disable-line no-unused-vars
-  console.log(`/githubredirect ${req.query.code}`);
+  // console.log(`/githubredirect ${req.query.code}`);
   client.exchangeCodeForToken(req.query.code)
     .then(token => {
-      console.log(JSON.stringify(token));
+      // console.log(JSON.stringify(token));
       res.send(token);
     })
     .catch(next);
@@ -29,7 +29,7 @@ app.get('/githubredirect', (req, res, next) => { // eslint-disable-line no-unuse
 
 // lists repo owned by authenticated user
 app.get('/auth/myrepos', (req, res, next) => { // eslint-disable-line no-unused-vars
-  console.log('/auth/myrepos');
+  // console.log('/auth/myrepos');
   client.loggedInUserRepos(req.query.access_token)
     .then(repos => res.send(repos))
     .catch(next);
@@ -37,7 +37,7 @@ app.get('/auth/myrepos', (req, res, next) => { // eslint-disable-line no-unused-
 
 // gets a list of issues
 app.get('/auth/:owner/:repo/issues', (req, res, next) => {
-  console.log('/auth/:owner/:repo/issues');
+  // console.log('/auth/:owner/:repo/issues');
   client.repoIssues(`${req.params.owner}/${req.params.repo}`, req.query.access_token)
     .then(issues => res.send(issues))
     .catch(next);
@@ -45,7 +45,7 @@ app.get('/auth/:owner/:repo/issues', (req, res, next) => {
 
 // gets a list of contributors
 app.get('/auth/:owner/:repo/contributors', (req, res, next) => {
-  console.log('/auth/:owner/:repo/contributors');
+  // console.log('/auth/:owner/:repo/contributors');
   client.repoCollaborators(`${req.params.owner}/${req.params.repo}`, req.query.access_token)
     .then(collaborators => res.send(collaborators))
     .catch(next);
@@ -68,5 +68,5 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 // run the server
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`Server listening at http://localhost:${port}`);
+  // console.log(`Server listening at http://localhost:${port}`);
 });
