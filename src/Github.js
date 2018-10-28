@@ -23,7 +23,7 @@ class Github {
   }
 
   exchangeCodeForToken(clientCode) {
-    console.log(this.baseUrl);
+    console.log(`Echanging token ${clientCode} : ${clientId} | ${clientSecret}`);
     const url = 'https://github.com/login/oauth/access_token';
     const options = {
       method: 'POST',
