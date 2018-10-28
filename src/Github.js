@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
-const clientId = process.env.client_id;
-const clientSecret = process.env.secret;
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.SECRET;
 
 class ResponseError extends Error {
   constructor(res, body) {
