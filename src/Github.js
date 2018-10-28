@@ -23,7 +23,7 @@ class Github {
   }
 
   exchangeCodeForToken(clientCode) {
-    console.log(`Echanging token ${clientCode} : ${clientId} | ${clientSecret}`);
+    // console.log(`Echanging token ${clientCode} : ${clientId} | ${clientSecret}`);
     const url = 'https://github.com/login/oauth/access_token';
     const options = {
       method: 'POST',
@@ -44,7 +44,7 @@ class Github {
           if (!res.ok) {
             throw new ResponseError(res, token);
           } else {
-            console.log(`exchange ok ${JSON.stringify(token)}`);
+            // console.log(`exchange ok ${JSON.stringify(token)}`);
           }
           return token;
         }));
@@ -72,7 +72,7 @@ class Github {
   }
 
   loggedInUserRepos(token) {
-    console.log(`Fetching User repo on github with token : ${token}`);
+    // console.log(`Fetching User repo on github with token : ${token}`);
     return this.request('/user/repos?type=owner', token);
   }
 
