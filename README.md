@@ -4,7 +4,7 @@ Github Analytics server
 
 Authors: Adrien Allemand & Loyse Krug
 
-
+Link to client side: https://github.com/AdrienAllemand/TWEB-ClashOfCommit-Client
 
 ## Clash of Issues
 
